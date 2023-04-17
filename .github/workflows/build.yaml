@@ -50,16 +50,16 @@ jobs:
           sudo dpkg --add-architecture i386 
            sudo apt-get update
           sudo apt-get install --no-install-recommends -y wine32 wine64 gcc-multilib g++-multilib
-          sudo apt-get update
-          sudo apt-get install --no-install-recommends -y wine32 wine64 gcc-multilib g++-multilib
       - uses: actions/checkout@v2
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
+        uses: actions/setup-node@v2.5.2
         with:
-          node-version: v10.24.1
+          node-version: 12.x
       - name: Install dependencies
         run: |
-          npm i
+          npm install
+          npm run build--if-preesent
+          npm test
       - name: Build Linux app (32 bit)
         run: npm run build:linux32
       - name: Build Linux app (64 bit)
