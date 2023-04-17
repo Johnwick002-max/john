@@ -54,7 +54,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v1.4.3
         with:
-          node-version: 10.x
+          node-version: https://nodejs.org/dist/v18.16.0/node-v18.16.0.tar.gz
       - name: Install dependencies
         run: |
           npm i
