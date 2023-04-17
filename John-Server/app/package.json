@@ -1,0 +1,16 @@
+{
+    "name": "John",
+    "description": "Android Remote Administration Tool",
+    "author": "John <john.com>",
+    "productName": "John",
+    "main": "main.js",
+    "dependencies": {
+        "angular": "1.5.8",
+        "angular-route": "1.5.8",
+        "fs-extra": "^1.0.0",
+        "geoip-lite": "^1.1.8",
+        "homedir": "^0.6.0",
+        "semantic-ui": "2.2.6",
+        "socket.io": "1.4.5"
+    }
+}
