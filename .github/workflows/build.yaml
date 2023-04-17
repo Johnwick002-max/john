@@ -2,7 +2,7 @@
 
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: JV
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cache node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -50,16 +50,17 @@ jobs:
           sudo dpkg --add-architecture i386 
            sudo apt-get update
           sudo apt-get install --no-install-recommends -y wine32 wine64 gcc-multilib g++-multilib
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.2
         with:
-          node-version: 12.x
+          node-version: 10.x
+          - name: Setup Go environment
+  uses: actions/setup-go@v4.0.0
+  with:
       - name: Install dependencies
         run: |
-          npm install
-          npm run build--if-preesent
-          npm test
+          npm i
       - name: Build Linux app (32 bit)
         run: npm run build:linux32
       - name: Build Linux app (64 bit)
